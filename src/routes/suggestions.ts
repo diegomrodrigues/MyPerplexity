@@ -8,6 +8,11 @@ import logger from '../utils/logger';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
+  res.status(200).json({ suggestions: [] });
+});
+
+/*
+router.post('/', async (req, res) => {
   try {
     let { chat_history, chat_model, chat_model_provider } = req.body;
 
@@ -42,5 +47,6 @@ router.post('/', async (req, res) => {
     logger.error(`Error in generating suggestions: ${err.message}`);
   }
 });
+*/
 
 export default router;

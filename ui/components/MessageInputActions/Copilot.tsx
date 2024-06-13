@@ -15,7 +15,7 @@ const CopilotToggle = ({
         onChange={setCopilotEnabled}
         className="bg-light-secondary dark:bg-dark-secondary border border-light-200/70 dark:border-dark-200 relative inline-flex h-5 w-10 sm:h-6 sm:w-11 items-center rounded-full"
       >
-        <span className="sr-only">Copilot</span>
+        <span className="sr-only">Raw Output</span>
         <span
           className={cn(
             copilotEnabled
@@ -34,7 +34,7 @@ const CopilotToggle = ({
             : 'text-black/50 dark:text-white/50 group-hover:text-black dark:group-hover:text-white',
         )}
       >
-        Copilot
+        Raw Output
       </p>
     </div>
   );

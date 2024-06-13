@@ -363,7 +363,7 @@ engines:
   - name: arxiv
     engine: arxiv
     shortcut: arx
-    timeout: 4.0
+    timeout: 10.0
 
   - name: ask
     engine: ask
@@ -382,6 +382,7 @@ engines:
 
   - name: wikipedia
     engine: wikipedia
+    timeout: 10.0
     shortcut: wp
     # add "list" to the array to get results in the results list
     display_type: ['infobox']
@@ -579,6 +580,7 @@ engines:
   - name: ddg definitions
     engine: duckduckgo_definitions
     shortcut: ddd
+    timeout: 10.0
     weight: 2
     disabled: true
     tests: *tests_infobox
@@ -632,7 +634,7 @@ engines:
   - name: wikidata
     engine: wikidata
     shortcut: wd
-    timeout: 3.0
+    timeout: 10.0
     weight: 2
     # add "list" to the array to get results in the results list
     display_type: ['infobox']
@@ -641,6 +643,7 @@ engines:
 
   - name: duckduckgo
     engine: duckduckgo
+    timeout: 10.0
     shortcut: ddg
 
   - name: duckduckgo images
@@ -821,12 +824,13 @@ engines:
   - name: goodreads
     engine: goodreads
     shortcut: good
-    timeout: 4.0
+    timeout: 6.0
     disabled: true
 
   - name: google
     engine: google
     shortcut: go
+    timeout: 10.0
     # additional_tests:
     #   android: *test_android
 
@@ -1872,7 +1876,7 @@ engines:
     #
     # Or you can use the html non-stable engine, activated by default
     engine: wolframalpha_noapi
-    timeout: 6.0
+    timeout: 10.0
     categories: general
     disabled: false
 

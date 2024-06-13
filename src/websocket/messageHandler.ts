@@ -103,6 +103,7 @@ export const handleMessage = async (
       if (handler) {
         const emitter = handler(
           parsedMessage.content,
+          parsedMessage.copilot,
           history,
           llm,
           embeddings,
