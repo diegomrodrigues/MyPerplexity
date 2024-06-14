@@ -5,10 +5,14 @@ const EmptyChat = ({
   sendMessage,
   focusMode,
   setFocusMode,
+  copilotEnabled,
+  setCopilotEnabled
 }: {
   sendMessage: (message: string) => void;
   focusMode: string;
   setFocusMode: (mode: string) => void;
+  copilotEnabled: boolean;
+  setCopilotEnabled: (copilotEnabled: boolean) => void;
 }) => {
   return (
     <div className="relative">
@@ -22,6 +26,8 @@ const EmptyChat = ({
           sendMessage={sendMessage}
           focusMode={focusMode}
           setFocusMode={setFocusMode}
+          copilotEnabled={copilotEnabled}
+          setCopilotEnabled={setCopilotEnabled}
         />
       </div>
     </div>

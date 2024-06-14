@@ -150,6 +150,7 @@ const ChatWindow = () => {
   const messagesRef = useRef<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [messageAppeared, setMessageAppeared] = useState(false);
+  const [copilotEnabled, setCopilotEnabled] = useState(true);
   const [focusMode, setFocusMode] = useState('webSearch');
 
   useEffect(() => {
@@ -170,6 +171,7 @@ const ChatWindow = () => {
         type: 'message',
         content: message,
         focusMode: focusMode,
+        copilot: copilotEnabled,
         history: [...chatHistory, ['human', message]],
       }),
     );
@@ -309,13 +311,17 @@ const ChatWindow = () => {
             sendMessage={sendMessage}
             messageAppeared={messageAppeared}
             rewrite={rewrite}
-          />
+            copilotEnabled={copilotEnabled}
+            setCopilotEnabled={setCopilotEnabled}
+            />
         </>
       ) : (
         <EmptyChat
           sendMessage={sendMessage}
           focusMode={focusMode}
           setFocusMode={setFocusMode}
+          copilotEnabled={copilotEnabled}
+          setCopilotEnabled={setCopilotEnabled}
         />
       )}
     </div>

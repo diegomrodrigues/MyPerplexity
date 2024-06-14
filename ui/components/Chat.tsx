@@ -12,12 +12,16 @@ const Chat = ({
   sendMessage,
   messageAppeared,
   rewrite,
+  copilotEnabled,
+  setCopilotEnabled
 }: {
   messages: Message[];
   sendMessage: (message: string) => void;
   loading: boolean;
   messageAppeared: boolean;
   rewrite: (messageId: string) => void;
+  copilotEnabled: boolean;
+  setCopilotEnabled: (copilotEnabled: boolean) => void;
 }) => {
   const [dividerWidth, setDividerWidth] = useState(0);
   const dividerRef = useRef<HTMLDivElement | null>(null);
@@ -78,7 +82,12 @@ const Chat = ({
           className="bottom-24 lg:bottom-10 fixed z-40"
           style={{ width: dividerWidth }}
         >
-          <MessageInput loading={loading} sendMessage={sendMessage} />
+          <MessageInput 
+            loading={loading}
+            sendMessage={sendMessage} 
+            copilotEnabled={copilotEnabled}
+            setCopilotEnabled={setCopilotEnabled}
+            />
         </div>
       )}
     </div>

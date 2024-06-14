@@ -266,7 +266,6 @@ const createBasicWebSearchRetrieverChain = (llm: BaseChatModel) => {
 const createBasicWebSearchAnsweringChain = (
   llm: BaseChatModel,
   embeddings: Embeddings,
-  rawOutputMode: boolean,
 ) => {
   const basicWebSearchRetrieverChain = createBasicWebSearchRetrieverChain(llm);
 
@@ -333,7 +332,7 @@ const createBasicWebSearchAnsweringChain = (
       new MessagesPlaceholder('chat_history'),
       ['user', '{query}'],
     ]),
-    rawOutputMode ? new RunnablePassthrough() : llm,
+    llm,
     strParser
   ]).withConfig({
     runName: 'FinalResponseGenerator',
@@ -342,7 +341,6 @@ const createBasicWebSearchAnsweringChain = (
 
 const basicWebSearch = (
   query: string,
-  rawOutputMode: boolean,
   history: BaseMessage[],
   llm: BaseChatModel,
   embeddings: Embeddings,
@@ -352,8 +350,7 @@ const basicWebSearch = (
   try {
     const basicWebSearchAnsweringChain = createBasicWebSearchAnsweringChain(
       llm,
-      embeddings,
-      rawOutputMode
+      embeddings
     );
 
     const stream = basicWebSearchAnsweringChain.streamEvents(
@@ -380,12 +377,11 @@ const basicWebSearch = (
 
 const handleWebSearch = (
   message: string,
-  rawOutputMode: boolean,
   history: BaseMessage[],
   llm: BaseChatModel,
   embeddings: Embeddings,
 ) => {
-  const emitter = basicWebSearch(message, rawOutputMode, history, llm, embeddings);
+  const emitter = basicWebSearch(message, history, llm, embeddings);
   return emitter;
 };
 

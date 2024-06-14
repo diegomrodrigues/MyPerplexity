@@ -8,12 +8,15 @@ const EmptyChatMessageInput = ({
   sendMessage,
   focusMode,
   setFocusMode,
+  copilotEnabled,
+  setCopilotEnabled
 }: {
   sendMessage: (message: string) => void;
   focusMode: string;
   setFocusMode: (mode: string) => void;
+  copilotEnabled: boolean;
+  setCopilotEnabled: (copilotEnabled: boolean) => void;
 }) => {
-  const [copilotEnabled, setCopilotEnabled] = useState(false);
   const [message, setMessage] = useState('');
 
   return (

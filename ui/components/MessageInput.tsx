@@ -8,11 +8,14 @@ import CopilotToggle from './MessageInputActions/Copilot';
 const MessageInput = ({
   sendMessage,
   loading,
+  copilotEnabled,
+  setCopilotEnabled
 }: {
   sendMessage: (message: string) => void;
   loading: boolean;
+  copilotEnabled: boolean;
+  setCopilotEnabled: (copilotEnabled: boolean) => void;
 }) => {
-  const [copilotEnabled, setCopilotEnabled] = useState(false);
   const [message, setMessage] = useState('');
   const [textareaRows, setTextareaRows] = useState(1);
   const [mode, setMode] = useState<'multi' | 'single'>('single');

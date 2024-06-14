@@ -37,7 +37,7 @@ export const getOpenaiApiKey = () => loadConfig().API_KEYS.OPENAI;
 
 export const getGroqApiKey = () => loadConfig().API_KEYS.GROQ;
 
-export const getSearxngApiEndpoint = () => "http://searxng:8080";
+export const getSearxngApiEndpoint = () => "http://localhost:4000";
 
 export const getOllamaApiEndpoint = () => loadConfig().API_ENDPOINTS.OLLAMA;
 

@@ -6,6 +6,8 @@ import routes from './routes';
 import { getPort } from './config';
 import logger from './utils/logger';
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const port = getPort();
 
 const app = express();

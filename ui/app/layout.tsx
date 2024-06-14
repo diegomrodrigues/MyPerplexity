@@ -6,6 +6,10 @@ import Sidebar from '@/components/Sidebar';
 import { Toaster } from 'sonner';
 import ThemeProvider from '@/components/theme/Provider';
 
+// Temporary fix to test a few things 
+// DONT FORGET TO REMOVE
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const montserrat = Montserrat({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
